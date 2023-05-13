@@ -6,14 +6,16 @@ import {
   Route
 } from 'react-router-dom'
 
+import { Login } from './pages'
+
 function App() {
 
 
   return (
-    <div className='App'>
+    <div className='w-screen h-screen'>
       <Router>
         <Routes>
-          <Route path='/'/>
+          <Route path='/' element={<Login/>} />
         </Routes>
       </Router>
     </div>
