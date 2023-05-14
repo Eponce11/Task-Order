@@ -9,8 +9,9 @@ const InputTextField = () => {
             <input 
                 type="text"
                 className="relative w-full pt-[20px] px-[10px] pb-[10px] bg-transparent border-none outline-none text-[red] text-base tracking-wider z-10"
+                required
             />
-            <span className="absolute left-0 pt-[15px] px-[10px] pb-[10px] text-base pointer-events-none tracking-wide">Email</span>
+            <span className="absolute left-0 pt-[15px] px-[10px] pb-[10px] text-base pointer-events-none tracking-wide duration-500 ">Email</span>
         </div>
     )
 }

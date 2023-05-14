@@ -6,7 +6,7 @@ import {
   Route
 } from 'react-router-dom'
 
-import { Login } from './pages'
+import { Login, Register } from './pages'
 
 function App() {
 
@@ -16,6 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
         </Routes>
       </Router>
     </div>
