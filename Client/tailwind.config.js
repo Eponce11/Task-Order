@@ -7,8 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "",
-        secondary: ""
+        primary: "#6D4AFF",
+        secondary: "",
+        bgPurple: "#EDE9FF",
+        white: "#FFFFFF",
+        dimWhite:"#F5F5F5"
+
       }
     },
     screens: {
