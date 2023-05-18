@@ -7,10 +7,10 @@ const InputTextField = (props: InputTextFieldProps) => {
     const { label, data, setData } = props;
 
     return (
-        <div className="relative w-full mt-[35px] bg-gray-500 rounded ">
+        <div className="relative w-full mt-[35px] bg-dimWhite rounded ">
             <input 
                 type="text"
-                className="relative w-full pt-[20px] px-[10px] pb-[10px] bg-transparent border-none outline-none text-[red] text-base tracking-wider z-10 peer-focus:translate-x-0 peer"
+                className="relative w-full pt-[20px] px-[10px] pb-[10px] bg-transparent border-none outline-none text-base tracking-wider z-10 peer-focus:translate-x-0 peer"
                 onChange={ (e:React.ChangeEvent<HTMLInputElement>) => { setData(e.target.value) }}
                 value={data}
                 required
