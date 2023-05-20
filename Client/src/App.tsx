@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <div className='w-screen h-screen'>
+    <div className='App w-screen h-screen'>
       <Router>
         <Routes>
           <Route path='/' element={<Login/>} />
