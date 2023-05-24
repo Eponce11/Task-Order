@@ -1,13 +1,24 @@
 
 
 
-const Card = () => {
+const Card = (props: any) => {
 
+    const { prop } = props;
 
 
     return (
-        <div className="h-28 w-56 bg-[rgb(0,128,0)] rounded mr-4">
-            <h3 className="text-xl">Title</h3>
+        <div className="h-28 w-56 bg-[rgb(0,128,0)] rounded mr-4 text-white relative">
+            {
+                prop.isTemplate &&
+                <div className="w-1/3 h-1/5 aspect-square bg-bgGrey mt-2 ml-2 flex items-center justify-center rounded opacity-75">
+                    <p className="text-xs text-[black]">Template</p>
+                </div>
+            }
+            <h3 className="text-xl mt-2 ml-2">{prop.title}</h3>
+            {
+                prop.isStarred &&
+                <div className="bg-[red] w-5 aspect-square absolute right-2 bottom-2" />
+            }
         </div>
     )
 }
