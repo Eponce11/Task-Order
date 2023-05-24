@@ -7,12 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6D4AFF",
-        secondary: "",
+        primary: "#4D34B3",
+        secondary: "#6D4AFF",
         bgPurple: "#EDE9FF",
         white: "#FFFFFF",
-        dimWhite:"#F5F5F5"
-
+        dimWhite:"#F5F5F5",
+        dimGrey: "#F1F2F4",
+        bgGrey: "#97A0AF",
+        hoverGrey: "#dcdfe5",
+        hoverPurple: "#5c37f1"
       }
     },
     screens: {

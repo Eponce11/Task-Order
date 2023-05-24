@@ -27,7 +27,7 @@ const Login = () => {
                         Register
                     </a>
                 </div>
-                <button className="bg-primary text-[white] w-full p-2 mt-2 rounded">Login</button>
+                <button className="bg-secondary text-[white] w-full p-2 mt-2 rounded">Login</button>
             </div>
         </div>
     )
