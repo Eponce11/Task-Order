@@ -3,15 +3,15 @@ import { Navbar } from "../../components";
 import Section from "./components/section";
 import Sidebar from "./components/sidebar";
 
+import { templates } from "./constants";
 
 const Home = () => {
 
 
-    const templates = [{title: "Title", isTemplate: true}, {title: "Title", isTemplate: true}];
-    const starred = [{title: "Title", isStarred: true}, {title: "Title", isStarred: true}];
+    // const templates = [{title: "Title", isTemplate: true}, {title: "Title", isTemplate: true}];
+    const starred = [{title: "Title", isStarred: true, style: "gradient-to-r from-primary to-secondary"}, {title: "Title", isStarred: true, style: "gradient-to-r from-primary to-secondary"}];
     const workspaces = [
-        [{title: "Title", isStarred: false}, {title: "Title", isStarred: true}, {title: "Title", isStarred:false}],
-        [{title: "Title", isStarred: false}, {title: "Title", isStarred:false}]
+        [{title: "Title", isStarred: false, style: "gradient-to-r from-primary to-secondary"}],
     ];
 
     return (
