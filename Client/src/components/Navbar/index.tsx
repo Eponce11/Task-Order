@@ -1,6 +1,6 @@
 
 import { navbarList } from "./constants";
-import { ChevronDown } from "../../assets/svg"
+import { ChevronDownWT } from "../../assets/svg"
 
 const Navbar = () => {
 
@@ -19,7 +19,7 @@ const Navbar = () => {
                                 `}
                             >
                                 { listItem.title }
-                                <img src={ChevronDown} alt="" />
+                                <img src={ChevronDownWT} alt="" />
                             </li>
                         )
                     })

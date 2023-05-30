@@ -1,5 +1,5 @@
 
-import { Settings } from "../../../../assets/svg";
+import { SettingsBK } from "../../../../assets/svg";
 
 const Header = () => {
 
@@ -17,7 +17,7 @@ const Header = () => {
                 <li 
                     className="h-full flex items-center justify-center p-2 bg-dimGrey rounded text-sm mr-2 hover:bg-hoverGrey cursor-pointer"
                 >
-                    <img src={Settings} alt="" className="h-4 aspect-square mr-1"/>
+                    <img src={SettingsBK} alt="" className="h-4 aspect-square mr-1"/>
                     Settings
                 </li>
                 <li className="h-full flex items-center justify-center p-2 bg-secondary rounded border-2 text-sm text-white hover:bg-hoverPurple cursor-pointer">New Board</li>

@@ -12,6 +12,7 @@ const Home = () => {
     const starred = [{title: "Title", isStarred: true, style: "gradient-to-r from-primary to-secondary"}, {title: "Title", isStarred: true, style: "gradient-to-r from-primary to-secondary"}];
     const workspaces = [
         [{title: "Title", isStarred: false, style: "gradient-to-r from-primary to-secondary"}],
+        [{title: "Title", isStarred: false, style: "gradient-to-r from-primary to-secondary"}]
     ];
 
     return (
@@ -26,9 +27,9 @@ const Home = () => {
                     <Section data={starred}/>
                     <h3 className="text-xl mt-2">Workspaces</h3>
                     {
-                        workspaces.map( (workspace:any) => {
+                        workspaces.map( (workspace:any, idx:number) => {
                             return (
-                                <Section data={workspace} isWorkspace={true}/>
+                                <Section data={workspace} isWorkspace={true} isLastWorkspace={idx === workspaces.length - 1}/>
                             )
                         })
                     }

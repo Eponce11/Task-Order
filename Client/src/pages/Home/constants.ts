@@ -1,18 +1,18 @@
 
-import { Board, Home, Template } from "../../assets/svg"
+import { BoardBK, HomeBK, TemplateBK } from "../../assets/svg"
 
 const navLinks = [
     {
         text: "Boards",
-        icon: Board
+        icon: BoardBK
     },
     {
         text: "Templates",
-        icon: Template
+        icon: TemplateBK
     },
     {
         text: "Home",
-        icon: Home
+        icon: HomeBK
     }
 ]
 

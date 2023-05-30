@@ -1,4 +1,6 @@
 
+import { sideBarLinks } from "../../constants";
+import { FeatureWT } from "../../../../assets/svg";
 
 
 const Sidebar = () => {
@@ -9,10 +11,17 @@ const Sidebar = () => {
                 <div className="bg-[blue] h-8 aspect-square mr-2" />
                 <span className="text-lg font-semibold">WorkspaceTitle</span>
             </div>
-            <ul className="w-full">
-                <li className="p-2 hover:bg-hoverPurple cursor-pointer text-sm">Boards</li>
-                <li className="p-2 hover:bg-hoverPurple cursor-pointer text-sm">Members</li>
-                <li className="p-2 hover:bg-hoverPurple cursor-pointer text-sm">Workspace Settings</li>
+            <ul className="w-full mt-2">
+                {
+                    sideBarLinks.map( (link:any) => {
+                        return (
+                            <li className="p-2 hover:bg-hoverPurple cursor-pointer text-sm flex items-center">
+                                <img src={link.icon} alt="" className="w-5 aspect-square mr-1"/>
+                                {link.text}
+                            </li>
+                        )
+                    })
+                }
             </ul>
             <div className="p-2">
                 <h4 className="font-semibold">Your Boards</h4>
@@ -25,7 +34,7 @@ const Sidebar = () => {
             </ul>
             <div className="w-full bg-secondary p-3 bottom-0 absolute border-t-[1px]">
                 <div className="w-full h-8 bg-[red] rounded flex items-center p-2">
-                    <div className="h-5 aspect-square bg-[green] mr-2" />
+                    <img src={FeatureWT} alt="" className="h-4 aspect-square mr-2" />
                     <span className="text-sm">More Features Coming Soon</span>
                 </div>
             </div>

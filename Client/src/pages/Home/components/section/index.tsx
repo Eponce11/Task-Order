@@ -5,10 +5,10 @@ import Header from "../header"
 
 const Section = (props:any) => {
 
-    const { data, isWorkspace } = props;
+    const { data, isWorkspace, isLastWorkspace } = props;
 
     return (
-        <section className="w-full py-4 flex flex-col border-b-2">
+        <section className={`w-full py-4 flex flex-col ${!isLastWorkspace ? "border-b-2" : ""}`}>
             { isWorkspace && <Header />}
             <div className="flex w-full">
             {
