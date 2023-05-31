@@ -6,7 +6,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="w-full bg-primary text-white py-2 px-3 flex items-center sticky top-0 z-10 border-b-[1px] relative">
+        <div className="w-full bg-primary text-white py-2 px-3 flex items-center top-0 z-10 border-b-[1px] relative">
             <h3 className="text-2xl mr-7">Task-Order</h3>
             <ul className="flex items-center">
                 {
@@ -14,7 +14,7 @@ const Navbar = () => {
                         return (
                             <li 
                                 className= {`
-                                    ${navbarList.length - 1 !== idx ? "mr-4" : ""} py-1 px-2 hover:bg-hoverPurple rounded cursor-pointer
+                                    ${navbarList.length - 1 !== idx ? "mr-4" : "mr-0"} py-1 px-2 hover:bg-hoverPurple rounded cursor-pointer
                                     flex 
                                 `}
                             >

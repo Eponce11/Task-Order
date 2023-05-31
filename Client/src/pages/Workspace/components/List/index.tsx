@@ -1,6 +1,7 @@
 
 
 import Card from "../Card";
+import { AddBK } from "../../../../assets/svg";
 
 const List = () => {
 
@@ -8,7 +9,7 @@ const List = () => {
 
 
     return (
-        <div className="w-56 bg-bgPurple h-full rounded-xl p-2 mr-3">
+        <div className="w-64 bg-bgPurple h-full rounded-xl p-2 mr-3 relative">
             <input 
                 type="text"
                 value="To Do"
@@ -23,6 +24,12 @@ const List = () => {
                     })
                 }
             </ul>
+            <div className="w-full h-10 absolute bottom-0 left-0 rounded-b-xl p-2">
+                <div className="flex items-center w-full h-full py-1 px-2 hover:bg-hoverGrey rounded-md">
+                    <img src={AddBK} alt="" className="h-4 aspect-square mr-1"/>
+                    <span>Add a Card</span>
+                </div>
+            </div>
         </div>
         
     )
