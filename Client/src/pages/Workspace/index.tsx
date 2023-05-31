@@ -9,7 +9,7 @@ const Workspace = () => {
     const lists = [0, 0, 0, 0];
 
     return (
-        <div className="w-full h-full flex flex-col bg-[#8970ea]">
+        <div className="w-full h-full flex flex-col bg-secondary">
             <Navbar />
             <div className="flex-1 flex">
                 <Sidebar />

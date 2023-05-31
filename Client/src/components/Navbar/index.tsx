@@ -6,7 +6,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="w-full bg-primary text-white py-2 px-3 flex items-center top-0 z-10 border-b-[1px] relative">
+        <div className="w-full bg-primary text-white py-2 px-3 flex items-center top-0 z-10 border-b-[1px] border-borderPurple relative">
             <h3 className="text-2xl mr-7">Task-Order</h3>
             <ul className="flex items-center">
                 {

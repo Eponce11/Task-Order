@@ -7,7 +7,7 @@ const Header = () => {
 
 
     return (
-        <div className="w-full h-12 bg-[#694fd3]">
+        <div className="w-full h-12 bg-dimPurple">
             <span>BoardTitle</span>
         </div>
     )
