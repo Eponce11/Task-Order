@@ -25,7 +25,9 @@ export default {
         bgPurple: "#EDE9FF",
         borderPurple: "#8A6D99",
         dimWhite: "#F1F2F4",
-        white: "#FFFFFF"
+        white: "#FFFFFF",
+        hoverPurple: "#785e84",
+        hoverGrey: "#dcdfe5",
       }
     },
     screens: {

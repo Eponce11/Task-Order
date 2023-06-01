@@ -5,17 +5,17 @@ import { AddBK } from "../../../../assets/svg";
 
 const List = () => {
 
-    const cards = [0,0,0,0,0,0,0,0,0,0,0];
+    const cards = [0,0];
 
 
     return (
-        <div className="w-64 bg-dimWhite h-full rounded-xl p-2 mr-3 relative">
+        <div className="w-64 bg-dimWhite rounded-xl p-2 mr-3 relative">
             <input 
                 type="text"
                 value="To Do"
                 className="w-full pl-2 bg-transparent outline-none mb-2 h-6"
             />
-            <ul className="absolute top-10 bottom-10 overflow-auto scrollbar">
+            <ul className=" overflow-auto scrollbar">
                 {
                     cards.map( (card:any) => {
                         return (
