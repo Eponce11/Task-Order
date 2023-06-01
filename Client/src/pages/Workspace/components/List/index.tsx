@@ -1,6 +1,6 @@
 
 
-import Card from "../Card";
+import { Card } from "..";
 import { AddBK } from "../../../../assets/svg";
 
 const List = () => {

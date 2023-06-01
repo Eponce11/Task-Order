@@ -1,12 +1,11 @@
 
 import { Navbar } from "../../components";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import List from "./components/List";
+import { Sidebar, Header, List, AddList } from "./components";
 
 const Workspace = () => {
 
-    const lists = [0, 0, 0, 0];
+    const lists = [0, 0];
+    
 
     return (
         <div className="w-full h-full flex flex-col bg-secondary">
@@ -17,6 +16,7 @@ const Workspace = () => {
                     <Header />
                     <div className="p-3 flex-1 flex">
                         { lists.map( (list:any) => <List /> ) }
+                        <AddList />
                     </div>
                 </div>
             </div>

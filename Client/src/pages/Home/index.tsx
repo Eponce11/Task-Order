@@ -1,7 +1,7 @@
 
 import { Navbar } from "../../components";
-import Section from "./components/section";
-import Sidebar from "./components/sidebar";
+import { Section, Sidebar } from "./components";
+
 
 import { templates } from "./constants";
 

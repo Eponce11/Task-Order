@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div className="w-64 bg-primary text-white relative border-r-[1px] border-borderPurple">
             <div className="flex items-center p-2 h-12 border-b-[1px] border-borderPurple">
                 <div className="bg-[blue] h-8 aspect-square mr-2" />
-                <span className="text-lg font-semibold">WorkspaceTitle</span>
+                <span className="text-lg font-medium">WorkspaceTitle</span>
             </div>
             <ul className="w-full mt-2">
                 {

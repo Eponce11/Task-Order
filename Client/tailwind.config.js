@@ -21,6 +21,7 @@ export default {
         primary: "#735185",
         secondary: "#89609E",
         dimPurple: '#684978',
+        lightPurple: "#A586B5",
         bgPurple: "#EDE9FF",
         borderPurple: "#8A6D99",
         dimWhite: "#F1F2F4",

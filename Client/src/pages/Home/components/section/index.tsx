@@ -1,6 +1,6 @@
 
-import Card from "../card"
-import Header from "../header"
+import { Card, Header } from "..";
+
 
 
 const Section = (props:any) => {
