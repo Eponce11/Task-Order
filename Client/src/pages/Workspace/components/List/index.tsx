@@ -1,11 +1,21 @@
 
 
-import { Card } from "..";
-import { AddBK } from "../../../../assets/svg";
+import { useState, useEffect, useRef } from "react";
+import { Card, AddCard } from "..";
 
 const List = () => {
 
-    const cards = [0,0];
+    const cards = [0,0,0,0,0,0,0,0,0];
+
+
+    const [addingCard, setAddingCard] = useState<boolean>(false);
+    const placeHolderBottom = useRef<any>();
+
+    useEffect( () => {
+        if (addingCard) {
+            placeHolderBottom.current.scrollIntoView({behavior: "smooth"});
+        }
+    }, [addingCard])
 
 
     return (
@@ -13,9 +23,9 @@ const List = () => {
             <input 
                 type="text"
                 value="To Do"
-                className="w-full pl-2 bg-transparent outline-none mb-2 h-6"
+                className="w-full pl-2 bg-transparent outline-none mb-2 h-6 absolute"
             />
-            <ul className=" overflow-auto scrollbar">
+            <ul className=" overflow-auto scrollbar absolute top-10 bottom-14">
                 {
                     cards.map( (card:any) => {
                         return (
@@ -23,13 +33,10 @@ const List = () => {
                         )
                     })
                 }
+                { addingCard && <Card addingCard={addingCard} setAddingCard={setAddingCard}/> }
+                <div ref={placeHolderBottom}/>
             </ul>
-            <div className="w-full h-10 absolute bottom-0 left-0 rounded-b-xl p-2">
-                <div className="flex items-center w-full h-full py-1 px-2 hover:bg-hoverGrey cursor-pointer rounded-md">
-                    <img src={AddBK} alt="" className="h-4 aspect-square mr-1"/>
-                    <span>Add a Card</span>
-                </div>
-            </div>
+            <AddCard addingCard={addingCard} setAddingCard={setAddingCard}/>
         </div>
         
     )
