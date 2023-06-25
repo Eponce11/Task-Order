@@ -1,10 +1,11 @@
 
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Card = (props:any) => {
 
     const { addingCard, setAddingCard } = props;
+    const [title, setTitle] = useState<string>('');
     const inputCard = useRef<any>();
 
     useEffect( () => {
@@ -22,6 +23,8 @@ const Card = (props:any) => {
                         className="w-full rounded text-sm p-2 drop-shadow-md border-[1px] overflow-auto" 
                         ref={inputCard}
                         onBlur={ () =>  setAddingCard(!addingCard)}
+                        value={title}
+                        onChange={ (e) => setTitle(e.target.value)}
                     />
                         :
                     <li className="w-full bg-white rounded mb-2 text-sm p-2 drop-shadow-md border-[1px]">
