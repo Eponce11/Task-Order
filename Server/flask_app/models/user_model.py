@@ -1,4 +1,4 @@
-from flask_app import db
+from flask_app import db, bcrypt
 import re
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -12,26 +12,39 @@ class User(db.Model):
   password = db.Column(db.String(60), nullable=False)
 
   @staticmethod
-  def create_user_validator(formData):
+  def create_user_validator(form_data):
     errors = {}
     
-    if len(formData['first_name']) < 2:
+    if len(form_data['first_name']) < 2:
       errors['first_name'] = 'First Name must be at least 2 characters'
     
-    if len(formData['last_name']) < 2:
+    if len(form_data['last_name']) < 2:
       errors['last_name'] = 'Last Name must be at least 2 characters'
 
-    if not EMAIL_REGEX.match(formData['email']):
+    if not EMAIL_REGEX.match(form_data['email']):
       errors['email'] = 'Invalid email address'
     else:
-      potential_email = db.session.execute(db.select(User).filter_by(email=formData['email'])).scalar()
+      potential_email = db.session.execute(db.select(User).filter_by(email=form_data['email'])).scalar()
       if potential_email:
         errors['email'] = 'Email in use'
       
-    if len(formData['password']) < 8:
+    if len(form_data['password']) < 8:
       errors['password'] = 'Password must be at least 8 characters'
     
-    if not formData['password'] == formData['confirm_password']:
+    if not form_data['password'] == form_data['confirm_password']:
       errors['confirm_password'] = 'Must match password'
 
     return errors
+  
+  @staticmethod
+  def login_validator(form_data):
+    potential_user = db.session.execute(db.select(User).filter_by(email=form_data['email'])).scalar()
+
+    if not potential_user:
+      return False
+    
+    if not bcrypt.check_password_hash(potential_user.password, form_data['password']):
+      return False
+
+    return potential_user
+

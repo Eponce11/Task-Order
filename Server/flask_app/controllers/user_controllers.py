@@ -30,3 +30,14 @@ def create_user():
   db.session.commit()
 
   return json.dumps({'Message': 'User Created'})
+
+@app.route('/api/user/login', methods=['POST'])
+def login():
+  data = json.loads(request.data)
+  
+  user = User.login_validator(data)
+
+  if not user:
+    return json.dumps({'error': 'Invalid Credentials'}), 400
+  
+  return json.dumps({'Msg': 'Success'})
