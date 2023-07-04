@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "./hooks";
+import { useLoginUser } from "./hooks";
 import InputTextField from "../../components/InputTextField";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
     if (!isLoading) {
       setIsLoading(true);
       try {
-        const user = await loginUser({ email, password });
+        const user = await useLoginUser({ email, password });
       } catch (err: any) {
         setError(err);
       } finally {
