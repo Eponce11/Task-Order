@@ -64,25 +64,19 @@ const Register = () => {
           label="Email"
           data={email}
           setData={setEmail}
-          error={
-            errors.hasOwnProperty("email") ? errors["email"] : null
-          }
+          error={errors.hasOwnProperty("email") ? errors["email"] : null}
         />
         <InputTextField
           label="Password"
           data={password}
           setData={setPassword}
-          error={
-            errors.hasOwnProperty("password") ? errors["password"] : null
-          }
+          error={errors.hasOwnProperty("password") ? errors["password"] : null}
         />
         <InputTextField
           label="ConfirmPassword"
           data={confirmPassword}
           setData={setConfirmPassword}
-          error={
-            errors.hasOwnProperty("confirm_password") ? errors["confirm_password"] : null
-          }
+          error={errors.hasOwnProperty("confirm_password")? errors["confirm_password"]: null}
         />
         <div className="w-full text-end mt-2">
           <a
@@ -93,10 +87,13 @@ const Register = () => {
           </a>
         </div>
         <button
-          className="bg-primary text-[white] w-full p-2 mt-2 rounded"
+          className="bg-primary text-[white] w-full p-2 mt-2 rounded relative"
           onClick={handleRegister}
         >
           Register
+          {isLoading && (
+            <span className="bg-[red] h-3 aspect-square absolute right-5 top-3" />
+          )}
         </button>
       </div>
     </div>
