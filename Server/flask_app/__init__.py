@@ -13,7 +13,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-CORS(app, origins=["http://localhost:3000","http://127.0.0.1:3000"])
+CORS(app, origins=["http://localhost:3001","http://127.0.0.1:3001"])
 
 from flask_app.models.user_model import User
 
