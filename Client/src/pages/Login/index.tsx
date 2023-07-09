@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginUser } from "./hooks";
+import { useAppDispatch } from "../../app/hooks";
+import { setSignedInUser } from "../../app/slices/signedInUserSlice";
 import InputTextField from "../../components/InputTextField";
 
 const Login = () => {
@@ -10,15 +12,15 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  const handleLogin = async (
-    e: React.MouseEvent<HTMLElement>
-  ): Promise<void> => {
+  const handleLogin = async (e: React.MouseEvent<HTMLElement>): Promise<void> => {
     e.preventDefault();
     if (!isLoading) {
       setIsLoading(true);
       try {
         const user = await useLoginUser({ email, password });
+        dispatch(setSignedInUser(user));
       } catch (err: any) {
         setError(err);
       } finally {

@@ -1,24 +1,30 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface signedInUserState {
-  id: number | undefined
+  id: string | undefined;
+  firstName: string | undefined;
+  lastName: string | undefined;
 }
 
 const initialState: signedInUserState = {
-  id: undefined
-}
+  id: undefined,
+  firstName: undefined,
+  lastName: undefined,
+};
 
 export const signedInUserSlice = createSlice({
-  name: 'signedInUserSlice',
+  name: "signedInUserSlice",
   initialState,
   reducers: {
-    
-  }
-})
+    setSignedInUser: (state, action: PayloadAction<signedInUserState>) => {
+      state.id = action.payload.id;
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+    },
+  },
+});
 
+export const { setSignedInUser } = signedInUserSlice.actions;
 
-export const {} = signedInUserSlice.actions
-
-export default signedInUserSlice.reducer
+export default signedInUserSlice.reducer;

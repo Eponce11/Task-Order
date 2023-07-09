@@ -29,7 +29,15 @@ def create_user():
   #db.session.add(user)
   #db.session.commit()
 
-  return json.dumps({'Message': 'User Created'})
+  response = {
+    'id': user.id,
+    'firstName': user.first_name,
+    'lastName': user.last_name
+  }
+
+  #need to get id
+
+  return json.dumps(response)
 
 @app.route('/api/user/login', methods=['POST'])
 def login():
@@ -39,5 +47,11 @@ def login():
 
   if not user:
     return json.dumps({'error': 'Invalid Credentials'}), 400
+
+  response = {
+    'id': user.id,
+    'firstName': user.first_name,
+    'lastName': user.last_name
+  }
   
-  return json.dumps({'Msg': 'Success'})
+  return json.dumps(response)

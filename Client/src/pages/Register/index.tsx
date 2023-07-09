@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { InputTextField } from "../../components";
 import { useRegisterUser } from "./hooks";
 import { registerUserDataErrors } from "./types";
+import { useAppDispatch } from "../../app/hooks";
+import { setSignedInUser } from "../../app/slices/signedInUserSlice";
 
 const Register = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -14,10 +16,9 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  const handleRegister = async (
-    e: React.MouseEvent<HTMLElement>
-  ): Promise<void> => {
+  const handleRegister = async (e: React.MouseEvent<HTMLElement>): Promise<void> => {
     e.preventDefault();
     if (!isLoading) {
       setIsLoading(true);
@@ -29,6 +30,7 @@ const Register = () => {
           password,
           confirm_password: confirmPassword,
         });
+        dispatch(setSignedInUser(user));
       } catch (err: any) {
         setErrors(err);
         console.log(err);
