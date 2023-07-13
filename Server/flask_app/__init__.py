@@ -16,6 +16,7 @@ db = SQLAlchemy(app)
 CORS(app, origins=["http://localhost:3001","http://127.0.0.1:3001"])
 
 from flask_app.models.user_model import User
+from flask_app.models.board_model import Board
 
 with app.app_context():
   db.create_all()

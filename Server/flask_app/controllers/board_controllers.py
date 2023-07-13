@@ -6,18 +6,19 @@ from flask_app.models.board_model import Board
 # Need to run validations
 @app.route('/api/board/create', methods=['POST'])
 def create_board():
-    data = json.loads(request.data)
+  data = json.loads(request.data)
 
-    # Run Validations
+  # Run Validations
 
-    board = Board(
-      title = data['title']
-    )
+  board = Board(
+    title = data['title']
+  )
 
-    db.session.add(board)
-    db.session.commit()
+  db.session.add(board)
+  db.session.commit()
 
-    response = {
-      'Msg': 'Success'
-    }
+  response = {
+    'Msg': 'Success'
+  }
+  
   return json.dumps(response)
