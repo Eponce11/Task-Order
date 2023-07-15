@@ -1,14 +1,14 @@
 
 import { UserWT, AddUserBK } from "../../../../assets/svg";
 
-const Header = () => {
+const Header = (props:any) => {
 
-
+  const { title } = props;
 
 
     return (
         <ul className="w-full h-12 bg-dimPurple text-white flex items-center px-3 relative">
-            <li className="text-xl mr-5">Board Title</li>
+            <li className="text-xl mr-5">{title}</li>
             <li className="flex items-center text-sm hover:bg-hoverPurple py-2 px-3 rounded cursor-pointer">
                 <img src={UserWT} alt="" className="h-4 aspect-square mr-2"/>
                 Workspace Visible

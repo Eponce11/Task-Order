@@ -22,3 +22,12 @@ def create_board():
   }
   
   return json.dumps(response)
+
+@app.route('/api/board/get/<id>', methods=['GET'])
+def get_one_board(id):
+  board = db.session.execute(db.select(Board).filter_by(id=id)).scalar()
+  response = {
+    'id': board.id,
+    'title': board.title
+  }
+  return response
