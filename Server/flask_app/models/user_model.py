@@ -10,6 +10,7 @@ class User(db.Model):
   last_name = db.Column(db.String(40), nullable=False)
   email = db.Column(db.String(50), unique=True, nullable=False)
   password = db.Column(db.String(60), nullable=False)
+  workspaces = db.relationship('Workspace', backref='users', lazy=True)
 
   @staticmethod
   def create_user_validator(form_data):
@@ -47,4 +48,3 @@ class User(db.Model):
       return False
 
     return potential_user
-

@@ -26,8 +26,8 @@ def create_user():
     password = data['password']
   )
   
-  #db.session.add(user)
-  #db.session.commit()
+  db.session.add(user)
+  db.session.commit()
 
   response = {
     'id': user.id,
