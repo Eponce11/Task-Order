@@ -11,13 +11,9 @@ const Workspace = () => {
       try {
         // Temporary Calling the First board
         const board = await useGetOneBoard(1);
-        setBoard(board)
-      } catch (error) {
-
-      }
-      
-
-    }
+        setBoard(board);
+      } catch (error) {}
+    };
     fetchData();
   }, []);
 
@@ -27,7 +23,7 @@ const Workspace = () => {
       <div className="flex-1 flex">
         <Sidebar />
         <div className="flex-1 flex flex-col">
-          <Header title={board.title}/>
+          {board && <Header title={board.title} />}
           <div className="p-3 flex-1 flex">
             {lists.map((list: any) => (
               <List />

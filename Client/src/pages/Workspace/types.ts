@@ -1,0 +1,4 @@
+
+interface board {
+  title: string,
+}
