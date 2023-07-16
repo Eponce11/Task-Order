@@ -22,12 +22,6 @@ def create_workspace():
 def get_all_workspace(id):
   db_workspaces = db.session.execute(db.select(Workspace).filter_by(user_id=id)).scalars()
 
-  allWorkSpaces = []
-  for workspace in db_workspaces:
-    allWorkSpaces.append({
-      'id': workspace.id,
-      'title': workspace.title,
-      'user_id': workspace.user_id
-    })
+  allWorkSpaces = Workspace.serialize_many(db_workspaces)
   
   return json.dumps(allWorkSpaces)

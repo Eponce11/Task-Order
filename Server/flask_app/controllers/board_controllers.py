@@ -11,7 +11,8 @@ def create_board():
   # Run Validations
 
   board = Board(
-    title = data['title']
+    title = data['title'],
+    workspace_id = data['workspace_id']
   )
 
   db.session.add(board)
