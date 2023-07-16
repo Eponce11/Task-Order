@@ -1,16 +1,16 @@
 
 import { SettingsBK } from "../../../../assets/svg";
 
-const Header = () => {
+const Header = (props:any) => {
 
-
+    const { title } = props;
 
 
     return (
         <div className="w-full h-10 flex justify-between items-center mb-4">
             <div className="h-full flex items-center">
                 <div className="h-full aspect-square bg-blue-500 mr-2" />
-                <span className="text-lg">WorkspaceName</span>
+                <span className="text-lg">{title}</span>
             </div>
             
             <ul className="flex items-center justify-center h-full">

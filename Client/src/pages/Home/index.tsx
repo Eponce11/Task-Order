@@ -12,6 +12,7 @@ const Home = () => {
       try {
         // get the signed in users id
         const allWorkspaces = await useGetAllWorkspaces(1);
+        console.log(allWorkspaces);
         setWorkspaces(allWorkspaces);
       } catch (error: any) {
         console.log(error);
@@ -39,14 +40,6 @@ const Home = () => {
         [{title: "Title", isStarred: false, style: "gradient-to-r from-primary to-secondary"}]
     ];
     */
-
-  /*
-    <Section
-                data={workspace}
-                isWorkspace={true}
-                isLastWorkspace={idx === workspaces.length - 1}
-              />
-    */
   return (
     <div className="h-full w-full bg-white flex flex-col relative overflow-hidden">
       <Navbar />
@@ -60,7 +53,15 @@ const Home = () => {
           <h3 className="text-xl mt-2">Workspaces</h3>
           {workspaces.length !== 0 &&
             workspaces.map((workspace: any, idx: number) => {
-              return <div key={workspace.id}>Hello World</div>;
+              return (
+                <Section
+                  key={workspace.id}
+                  data={workspace.boards}
+                  title={workspace.title}
+                  isWorkspace={true}
+                  isLastWorkspace={idx === workspaces.length - 1}
+                />
+              );
             })}
         </div>
       </div>

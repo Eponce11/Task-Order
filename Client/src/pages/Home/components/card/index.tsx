@@ -7,7 +7,7 @@ const Card = (props: any) => {
 
 
     return (
-        <div className={`h-28 w-56 rounded mr-4 text-white relative bg-${prop.style}`}>
+        <div className={`h-28 w-56 rounded mr-4 text-white relative bg-gradient-to-r from-primary to-secondary`}>
             {
                 prop.isTemplate &&
                 <div className="w-1/3 h-1/5 aspect-square bg-bgGrey mt-2 ml-2 flex items-center justify-center rounded opacity-75">
