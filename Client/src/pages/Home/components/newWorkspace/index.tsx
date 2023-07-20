@@ -16,16 +16,22 @@ const NewWorkspace = (props: any) => {
         Boost your productivity by making it easier for everyone to access
         boards in one location.
       </p>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-3">
         <label>Workspace title</label>
-        <input type="text" className="border-solid h-9 pl-2 my-1" />
-        <span className="text-[12px]">This is the name of your company, team or organization</span>
+        <input
+          type="text"
+          className="border-solid border-[#CED8E7] rounded-sm border-2 h-9 pl-2 my-1"
+          placeholder="Taco's Co."
+        />
+        <span className="text-[12px]">
+          This is the name of your company, team or organization
+        </span>
       </div>
       <div className="flex flex-col">
         <label>Workspace description</label>
         <input type="text" />
       </div>
-      <button>Continue</button>
+      <button className="bg-[red] w-full h-10">Continue</button>
     </Modal>
   );
 };
