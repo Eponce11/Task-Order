@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Modal } from "../../../../components";
 import { CancelBK } from "../../../../assets/svg";
 const NewWorkspace = (props: any) => {
   const { setIsModalOpen } = props;
+
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
 
   return (
     <Modal>
@@ -20,18 +24,30 @@ const NewWorkspace = (props: any) => {
         <label>Workspace title</label>
         <input
           type="text"
-          className="border-solid border-[#CED8E7] rounded-sm border-2 h-9 pl-2 my-1"
+          className="border-solid border-[#CED8E7] focus:outline-none focus:border-[#0C66E4] hover:rounded-sm border-2 h-9 pl-2 my-1"
           placeholder="Taco's Co."
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
         />
         <span className="text-[12px]">
           This is the name of your company, team or organization
         </span>
       </div>
       <div className="flex flex-col">
-        <label>Workspace description</label>
-        <input type="text" />
+        <label>
+          Workspace description
+          <span className="text-[12px] ml-1">Optional</span>
+        </label>
+        <textarea
+          className="border-solid border-[#CED8E7] focus:outline-none focus:border-[#0C66E4] hover:rounded-sm border-2 h-32 pl-2 my-1 resize-none"
+          placeholder="Our team organizes everything here."
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+        />
       </div>
-      <button className="bg-[red] w-full h-10">Continue</button>
+      <button className="w-full h-10 mt-5 rounded-sm text-white bg-[#0C66E4]" disabled={title ? false : true}>
+        Continue
+      </button>
     </Modal>
   );
 };
