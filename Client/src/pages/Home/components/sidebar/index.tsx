@@ -1,10 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "../../constants";
 import { AddBK } from "../../../../assets/svg";
 import { NewWorkspace } from "..";
+import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
+import { useGetAllWorkspaces } from "../../../../hooks/workspace";
+import { setWorkspaces } from "../../../../app/slices/workspacesSlice";
 
 const Sidebar = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const workspaces = useAppSelector((state) => state.workspaces.workspaces);
+  const isFetched = useAppSelector((state) => state.workspaces.isFetched);
+  const signedInUserId = useAppSelector((state) => state.signedInUser.id);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      try {
+        const allWorkspaces = await useGetAllWorkspaces(signedInUserId);
+        dispatch(
+          setWorkspaces({
+            workspaces: allWorkspaces,
+            isFetched: true,
+          })
+        );
+      } catch (error: any) {
+        console.log(error);
+      }
+    };
+    if (!isFetched) fetchData();
+  }, []);
 
   return (
     <div className="w-72 relative">
@@ -28,14 +52,16 @@ const Sidebar = () => {
         />
       </div>
       <ul className="w-full">
-        <li className="flex items-center p-3 rounded hover:bg-hoverGrey cursor-pointer">
-          <div className="bg-[green] h-6 aspect-square mr-2" />
-          <span>WorkspaceName</span>
-        </li>
-        <li className="flex items-center p-3 rounded hover:bg-hoverGrey cursor-pointer">
-          <div className="bg-[green] h-6 aspect-square mr-2" />
-          <span>WorkspaceName</span>
-        </li>
+        {
+          workspaces.map((workspace:any) => {
+            return (
+              <li className="flex items-center p-3 rounded hover:bg-hoverGrey cursor-pointer">
+                <div className="bg-[green] h-6 aspect-square mr-2" />
+                <span>{workspace.title}</span>
+              </li>
+            )
+          })
+        }
       </ul>
       {isModalOpen && <NewWorkspace setIsModalOpen={setIsModalOpen} />}
     </div>
