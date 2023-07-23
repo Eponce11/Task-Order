@@ -7,6 +7,7 @@ def create_workspace():
   data = json.loads(request.data)
   workspace = Workspace(
     title = data['title'],
+    description = data['description'],
     user_id = data['user_id']
   )
   db.session.add(workspace)

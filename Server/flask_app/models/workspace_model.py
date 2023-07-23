@@ -6,6 +6,7 @@ class Workspace(db.Model):
   __tablename__ = "workspaces"
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(50), nullable=False)
+  description = db.Column(db.String(200), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
   boards = db.relationship('Board', backref='workspaces', lazy=True)
 
@@ -19,6 +20,7 @@ class Workspace(db.Model):
     return {
       'id': data.id,
       'title': data.title,
+      'description': data.description,
       'user_id': data.user_id,
       'boards': allBoards
     }
