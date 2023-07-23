@@ -1,11 +1,27 @@
 import { useState } from "react";
 import { Modal } from "../../../../components";
 import { CancelBK } from "../../../../assets/svg";
+import { useCreateWorkspace } from "../../../../hooks/workspace";
+
 const NewWorkspace = (props: any) => {
   const { setIsModalOpen } = props;
 
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+
+  const handleNewWorkspace = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    try {
+      const newWorkspace = await useCreateWorkspace({
+        title,
+        description,
+        user_id: 1,
+      });
+      console.log(newWorkspace);
+    } catch (error: any) {
+      console.log(error)
+    }
+  };
 
   return (
     <Modal>
@@ -45,7 +61,11 @@ const NewWorkspace = (props: any) => {
           value={description}
         />
       </div>
-      <button className="w-full h-10 mt-5 rounded-sm text-white bg-[#0C66E4]" disabled={title ? false : true}>
+      <button
+        className="w-full h-10 mt-5 rounded-sm text-white bg-[#0C66E4]"
+        disabled={title ? false : true && description ? false : true}
+        onClick={handleNewWorkspace}
+      >
         Continue
       </button>
     </Modal>
