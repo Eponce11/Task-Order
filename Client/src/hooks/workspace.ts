@@ -3,7 +3,7 @@ import { NewWorkspaceData } from "../pages/Home/types";
 
 const URI = "http://localhost:5000/api/workspace";
 
-const useGetAllWorkspaces = async (id: number): Promise<any> => {
+const useGetAllWorkspaces = async (id: string | undefined): Promise<any> => {
   return new Promise((resolve, reject) => {
     axios
       .get(`${URI}/get_all/${id}`)

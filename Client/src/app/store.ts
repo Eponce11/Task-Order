@@ -4,9 +4,11 @@ import { persistReducer } from "redux-persist";
 import thunk from "redux-thunk";
 
 import signedInUserSlice from "./slices/signedInUserSlice";
+import workspacesSlice from "./slices/workspacesSlice";
 
 const reducers = combineReducers({
   signedInUser: signedInUserSlice,
+  workspaces: workspacesSlice
 });
 
 const persistConfig = {

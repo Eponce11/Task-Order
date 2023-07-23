@@ -1,24 +1,32 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Navbar } from "../../components";
 import { Section, Sidebar } from "./components";
 import { useGetAllWorkspaces } from "../../hooks/workspace";
 import { templates } from "./constants";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setWorkspaces } from "../../app/slices/workspacesSlice";
 
 const Home = () => {
-  const [workspaces, setWorkspaces] = useState<Array<any>>([]);
+  const workspaces = useAppSelector((state) => state.workspaces.workspaces);
+  const isFetched = useAppSelector((state) => state.workspaces.isFetched);
+  const signedInUserId = useAppSelector((state) => state.signedInUser.id);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
-        // get the signed in users id
-        const allWorkspaces = await useGetAllWorkspaces(1);
-        console.log(allWorkspaces);
-        setWorkspaces(allWorkspaces);
+        const allWorkspaces = await useGetAllWorkspaces(signedInUserId);
+        dispatch(
+          setWorkspaces({
+            workspaces: allWorkspaces,
+            isFetched: true,
+          })
+        );
       } catch (error: any) {
         console.log(error);
       }
     };
-    fetchData();
+    if (!isFetched) fetchData();
   }, []);
 
   // const templates = [{title: "Title", isTemplate: true}, {title: "Title", isTemplate: true}];
