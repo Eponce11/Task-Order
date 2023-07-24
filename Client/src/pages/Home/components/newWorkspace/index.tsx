@@ -24,7 +24,7 @@ const NewWorkspace = (props: any) => {
   };
 
   return (
-    <Modal>
+    <Modal className={"bg-white px-10 py-12 relative rounded-md"}>
       <img
         src={CancelBK}
         alt=""

@@ -9,10 +9,10 @@ const Section = (props: any) => {
         !isLastWorkspace ? "border-b-2" : ""
       }`}
     >
-      {isWorkspace && <Header title={title}/>}
+      {isWorkspace && <Header title={title} workspaceId={data.id} />}
       <div className="flex w-full">
-        {data.map((prop: any) => {
-          return <Card prop={prop} />;
+        {data.map((prop: any, idx: number) => {
+          return <Card prop={prop} key={idx} />;
         })}
       </div>
     </section>
