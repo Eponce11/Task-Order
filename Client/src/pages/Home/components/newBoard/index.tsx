@@ -1,11 +1,14 @@
 import { Modal } from "../../../../components";
 import { CancelBK } from "../../../../assets/svg";
+import { useAppSelector } from "../../../../app/hooks";
 
 interface newBoardProps {
   setIsModalOpen: any;
 }
+
 const NewBoard = (props: newBoardProps) => {
   const { setIsModalOpen } = props;
+  const workspaces = useAppSelector((state) => state.workspaces.workspaces);
   return (
     <Modal className={"w-[300px] bg-white p-3 flex flex-col items-center"}>
       <div className="w-full relative">
@@ -32,9 +35,13 @@ const NewBoard = (props: newBoardProps) => {
       <div className="w-full flex flex-col">
         <label>Workspace</label>
         <select>
-          <option value="">Some Option</option>
-          <option value="">Some Option</option>
-          <option value="">Some Option</option>
+          {workspaces.map((workspace: any) => {
+            return (
+              <option key={workspace.id} value={workspace.id}>
+                {workspace.title}
+              </option>
+            );
+          })}
         </select>
       </div>
       <button>Create</button>
