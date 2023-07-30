@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Modal } from "../../../../components";
 import { CancelBK } from "../../../../assets/svg";
 import { useAppSelector } from "../../../../app/hooks";
@@ -9,6 +10,9 @@ interface newBoardProps {
 const NewBoard = (props: newBoardProps) => {
   const { setIsModalOpen } = props;
   const workspaces = useAppSelector((state) => state.workspaces.workspaces);
+  const [title, setTitle] = useState<string>("");
+  const [selectedWorkspace, setSelectedWorkspace] = useState<string>('');
+
   return (
     <Modal className={"w-[300px] bg-white p-3 flex flex-col items-center"}>
       <div className="w-full relative">
@@ -30,7 +34,11 @@ const NewBoard = (props: newBoardProps) => {
       </ul>
       <div className="w-full flex flex-col">
         <label>Board title</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </div>
       <div className="w-full flex flex-col">
         <label>Workspace</label>
