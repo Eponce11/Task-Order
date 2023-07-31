@@ -18,7 +18,7 @@ const Workspace = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col bg-secondary">
+    <div className="w-full h-full flex flex-col theme-purple bg-secondary">
       <Navbar />
       <div className="flex-1 flex">
         <Sidebar />

@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import { createThemes } from 'tw-colors'
+
 export default {
   content: [
     "./index.html",
@@ -18,6 +20,7 @@ export default {
         hoverGrey: "#dcdfe5",
         hoverPurple: "#5c37f1"
         */
+        /*
         primary: "#735185",
         secondary: "#89609E",
         dimPurple: '#684978',
@@ -28,6 +31,7 @@ export default {
         white: "#FFFFFF",
         hoverPurple: "#785e84",
         hoverGrey: "#dcdfe5",
+      */
       }
     },
     screens: {
@@ -37,6 +41,19 @@ export default {
       xl: '1440px',
     }
   },
-  plugins: [],
+  plugins: [
+    createThemes({
+      purple: {
+        'primary': '#735185',
+        'secondary': '#89609E',
+        'border': '#9C7AAE',
+        'white': '#FFFFFF',
+        'dimPurple': '#684978'
+      },
+      green: {
+        'primary': '#A586B5'
+      }
+    })
+  ],
 }
 
